@@ -70,6 +70,26 @@ categories: ["靶机复盘"]
 tags: ["HackMyVM", "Easy"]
 ```
 
+### ⚠️ 放错位置会出问题（必读）
+
+**铁律：文章文件夹必须放在 `content/posts/` 下面（里面套几层都行）。**
+
+放到 `content/` 根下的**其他**文件夹（比如 `content/hackthebox/`）**不会报错**，但会变成"独立栏目"，副作用是：网址变成 `/hackthebox/start/`、文章页**缺少日期/分类/标签/目录**、也**不上首页和归档**。
+
+| 写法 | 网址 | 完整文章页 | 上首页 |
+| ---- | ---- | ---------- | ------ |
+| `content/posts/hackthebox/start/index.md` ✅ | `/p/start/` | 有 | 有 |
+| `content/hackthebox/start/index.md` ❌ | `/hackthebox/start/` | 缺元信息区 | 无 |
+
+另外 4 个常见坑（都不报错，但文章会"消失"或异常）：
+
+1. **`draft: true`** —— 不会发布，改成 `false`。
+2. **日期写成"未来"** —— 本站 `buildFuture=false`，未来日期的文章会被**静默跳过**（看起来像没发）。用 `hugo new` 生成的日期是当前时间，不会踩这个坑。
+3. **文件夹名重复** —— 两篇会抢同一个 `/p/<文件夹名>/` 网址。改文件夹名，或在 front matter 里加 `slug: 新的名字`。
+4. **front matter 语法错**（引号不配、冒号后没空格）—— 本地 `hugo` 会报错；**push 前先本地 `hugo --minify` 构建一次**最稳。
+
+> 小提示：主题会自动把**标题首字母大写**（`Start（放在 posts 下）` 会显示成 `Start（放在 Posts 下）`），属正常现象，不用管。
+
 ## 文章写法
 
 每篇文章是一个独立文件夹（Page Bundle），图片直接放在文章旁边：
