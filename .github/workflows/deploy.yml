@@ -44,6 +44,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # 若仓库还没启用 Pages，自动启用（Source = GitHub Actions），免去手动点界面
+          enablement: true
 
       - name: Build
         run: |

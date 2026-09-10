@@ -76,11 +76,15 @@ featured_image: "cover.jpg"   # 可选封面
    git push -u origin main
    ```
 
-3. 打开仓库页面 → **Settings** → **Pages** → **Build and deployment** → Source 选择 **GitHub Actions**。
+3. Pages **通常无需手动设置**：推送后 GitHub Actions 会自动启用 Pages（已配置 `enablement: true`）。
+   如果第一次没成功，也可以手动来一次：仓库 **Settings → Pages**（直接访问
+   `https://github.com/<用户名>/<仓库名>/settings/pages`），把 **Source** 设为 **GitHub Actions**。
 4. 等待 Actions 跑完（仓库的 Actions 标签页可以看到进度），博客地址：
    - 普通仓库：`https://<用户名>.github.io/<仓库名>/`
    - 主页仓库：`https://<用户名>.github.io/`
 
+> 注意：**只有公开仓库（Public）才能免费使用 Pages**。若仓库是 Private，Pages 设置里不会出现 Source 选项，
+> 需要把仓库改为 Public（Settings → General → Danger Zone → Change visibility）或升级付费账号。
 > 部署流程会自动安装 Dart Sass，无需额外设置。
 
 ## 常用维护命令
