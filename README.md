@@ -4,7 +4,7 @@ Hugo + Stack 主题的中文博客，部署在 GitHub Pages 上，push 即自动
 
 ## 环境要求
 
-- Hugo extended（已安装到 `D:\Tools\hugo`，并已加入用户 PATH；新开的终端直接可用 `hugo` 命令）
+- Hugo extended（已安装到 `D:\wArn\tool\hugo`，并已加入用户 PATH；新开的终端直接可用 `hugo` 命令）
 - Git
 
 ## 日常写作三步
