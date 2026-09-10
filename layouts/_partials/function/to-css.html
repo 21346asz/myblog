@@ -1,0 +1,43 @@
+{{- /*
+  ⚠️ 站点覆盖文件（覆盖 themes/FixIt/layouts/_partials/function/to-css.html）
+
+  为什么需要它：
+    FixIt 主题的 SCSS（content/shortcodes/_douyin.scss）仍用旧的斜杠除法写法，
+    Dart Sass 会打印 [slash-div] 弃用警告。Hugo 没有全局开关，也不能改主题内部
+    （改主题 submodule 升级会冲突），因此按 Hugo 官方推荐做法在站点覆盖此 partial，
+    向 toCSS 传入 silenceDeprecations，精准屏蔽已知的 slash-div 弃用提示。
+
+  维护提醒：
+    升级 FixIt 主题后，如果主题更新了本 partial（新增/调整编译选项），
+    请把新版本复制过来并保留这里新增的 silenceDeprecations 一行。
+
+  与主题原版的唯一差异：$defaultOptions 里多了 "silenceDeprecations" 一项。
+*/ -}}
+
+{{- $resource := .Resource -}}
+{{- $minify := .Minify -}}
+{{- with .ToCSS -}}
+  {{- $targetPath := replaceRE `\.(template\.)?scss$` ".css" $resource.Name -}}
+  {{- $targetPath = replace $targetPath "scss" "css" -}}
+  {{- $defaultOptions := dict
+    "transpiler" "dartsass"
+    "enableSourceMap" hugo.IsDevelopment
+    "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+    "targetPath" $targetPath
+    "silenceDeprecations" (slice "slash-div")
+  -}}
+  {{- $options := . -}}
+  {{- if eq $options true -}}
+    {{- $options = dict -}}
+  {{- end -}}
+  {{- $options = $options | merge $defaultOptions -}}
+  {{- $resource = $resource | toCSS $options -}}
+  {{- $minify = $minify | default hugo.IsProduction -}}
+{{- end -}}
+{{- if $minify -}}
+  {{- $resource = $resource | minify -}}
+{{- end -}}
+{{- with .Fingerprint -}}
+  {{- $resource = $resource | fingerprint . -}}
+{{- end -}}
+{{- return $resource -}}

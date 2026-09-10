@@ -1,6 +1,8 @@
 # -- 图片处理配置 --
-# Hugo 0.163 起 quality 需按格式分别设置
-_merge = "shallow"
+# 注意：必须用 _merge = "none" 整体替换主题的 [imaging] 配置，
+# 否则主题自带的已弃用键 quality 会继续触发 Hugo 0.163+ 的弃用告警。
+# 这里改为按格式分别设置质量，效果等价。
+_merge = "none"
 
 [jpeg]
   quality = 75

@@ -92,6 +92,5 @@ git submodule update --remote themes/FixIt        # 升级 FixIt 主题（之后
 hugo env                                          # 查看当前 Hugo 版本
 ```
 
-> 说明：构建时可能出现两条 WARN——一条是主题自带的 `imaging.quality` 弃用提示，
-> 一条是主题 SCSS 里旧的斜杠除法提示。它们**都不影响使用**，属正常现象，
-> 主题后续版本会修复。
+> 说明：构建现在是**零警告**的。此前主题早期写法引起的两条提示（`imaging.quality` 弃用、
+> SCSS 斜杠除法）已在本项目中修复，不需要再关注。
