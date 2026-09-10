@@ -9,6 +9,8 @@ autoSwitchAppearance = true # 跟随系统明暗设置
 enableSearch = true # 顶栏搜索（本地全文搜索）
 enableCodeCopy = true # 代码块一键复制
 
+backgroundImageWidth = 1200 # 背景图自动缩放到 1200px 宽，避免加载超大原图
+
 mainSections = ["post"] # 博客文章所在目录 content/post/
 
 [header]
