@@ -1,56 +1,21 @@
 # -- 站点基础配置 --
-# 主题文档：https://blowfish.page/docs/getting-started/
-# 注意：Blowfish 用 config/_default/ 目录结构管理配置，根目录不再有 hugo.yaml
-
-theme = "blowfish"
-baseURL = "https://example.com/" # 占位即可：部署时 GitHub Actions 会自动替换成真实地址
+# FixIt 主题文档：https://fixit.lruihao.cn/zh-cn/
+theme = "FixIt"
+title = "我的博客"
+baseURL = "https://example.com/" # 占位即可：GitHub Actions 构建时会自动替换成真实地址
 defaultContentLanguage = "zh-cn"
+locale = "zh-CN"
 hasCJKLanguage = true # 让中文的摘要/字数统计正确
+timeZone = "Asia/Shanghai"
 
 enableRobotsTXT = true
 enableEmoji = true
+enableGitInfo = true # 文章最后修改时间可使用 git 记录
 summaryLength = 0
 
 buildDrafts = false
 buildFuture = false # 注意：文章 date 在未来时不会发布
 
-[pagination]
-  pagerSize = 10 # 每页显示的文章数
-
-[imaging]
-  anchor = "Center"
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  author = "authors"
-  series = "series"
-
-# 搜索功能必需：首页额外输出 JSON 索引（顶栏搜索浮层要用）
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-
-[sitemap]
-  changefreq = "daily"
-  filename = "sitemap.xml"
-  priority = 0.5
-
-[related]
-  threshold = 0
-  toLower = false
-
-  [[related.indices]]
-    name = "tags"
-    weight = 100
-
-  [[related.indices]]
-    name = "categories"
-    weight = 100
-
-  [[related.indices]]
-    name = "series"
-    weight = 50
-
-[permalinks]
-  post = "/p/:slugorfilename/" # 文章链接形如 /p/hello-world/
-  page = "/:slugorfilename/"
+titleCaseStyle = "ap"
+capitalizeListTitles = false
+mainSections = ["post"] # 博客文章所在目录 content/post/

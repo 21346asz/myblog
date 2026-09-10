@@ -1,11 +1,14 @@
 # 我的博客
 
-Hugo + Blowfish 主题的中文博客，部署在 GitHub Pages 上，push 即自动发布。
+Hugo + FixIt 主题的中文博客，部署在 GitHub Pages 上，push 即自动发布。
 
 ## 环境要求
 
-- Hugo extended（已安装到 `D:\wArn\tool\hugo`，并已加入用户 PATH；新开的终端直接可用 `hugo` 命令）
-- Git
+- **Hugo extended**：已安装到 `D:\wArn\tool\hugo`，并加入用户 PATH（新终端直接可用 `hugo` 命令）
+- **Dart Sass**：FixIt 主题用它编译样式，已安装到 `D:\wArn\tool\dart-sass`，并加入用户 PATH
+- **Git**
+
+> 提示：Hugo 0.166 不再内置 Sass 编译器，所以必须有 Dart Sass；两者都已配好，正常不用管。
 
 ## 日常写作三步
 
@@ -25,16 +28,42 @@ git push
 
 push 后 GitHub Actions 自动构建发布，约一分钟后线上可见。
 
-## 配置在哪改（Blowfish 用 config/_default/ 目录管理配置）
+## 配置在哪改（FixIt 用 config/_default/ 目录管理配置）
 
 | 想改什么 | 改哪里 |
 | -------- | ------ |
-| 博客标题 / 站点描述 | `config/_default/languages.zh-cn.toml` → `title` / `description` |
-| 首页作者卡片（名字、签名、社交链接） | `config/_default/languages.zh-cn.toml` → `[params.author]` |
-| 顶部导航菜单 | `config/_default/menus.zh-cn.toml` |
-| 外观与功能（配色、布局、代码复制、目录等） | `config/_default/params.toml` |
-| 站点基础（每页文章数、链接格式） | `config/_default/hugo.toml` |
-| 头像 / logo | 图片放 `assets/img/`，在 `languages.zh-cn.toml` 对应位置填路径 |
+| 博客标题 | `config/_default/hugo.toml` → `title` |
+| 站点描述 | `config/_default/params.toml` → `description` |
+| 首页作者卡片（名字、签名、头像、社交链接） | `config/_default/params.toml` → `[author]` / `[home.profile]` / `[social]` |
+| 顶部导航菜单 | `config/_default/menus.toml` |
+| 外观与功能（明暗主题、代码块、目录、搜索等） | `config/_default/params.toml` |
+| 每页文章数、链接格式 | `config/_default/hugo.toml` / `config/_default/permalinks.toml` |
+| 头像 / logo | 图片放 `assets/img/`，在 `params.toml` 的 `[author]` 里填 `avatar = "img/avatar.png"` |
+
+## 文章写法
+
+每篇文章是一个独立文件夹（Page Bundle），图片直接放在文章旁边：
+
+```text
+content/post/我的新文章/
+├── index.md
+├── cover.jpg       ← 封面图（在 front matter 里写 featured_image: "cover.jpg"）
+└── screenshot.png  ← 正文配图
+```
+
+front matter 示例（`hugo new` 会自动生成一部分）：
+
+```yaml
+---
+title: "我的新文章"
+date: 2026-09-10T16:30:00+08:00
+draft: false              # 改成 false 才会发布
+description: "一句话摘要，会显示在列表和搜索里"
+tags: ["标签A", "标签B"]
+categories: ["分类"]
+featured_image: "cover.jpg"   # 可选封面
+---
+```
 
 ## 首次部署到 GitHub（只需做一次）
 
@@ -52,13 +81,17 @@ push 后 GitHub Actions 自动构建发布，约一分钟后线上可见。
    - 普通仓库：`https://<用户名>.github.io/<仓库名>/`
    - 主页仓库：`https://<用户名>.github.io/`
 
+> 部署流程会自动安装 Dart Sass，无需额外设置。
+
 ## 常用维护命令
 
 ```bash
-hugo --minify                                    # 本地完整构建，输出到 public/
-git submodule update --remote themes/blowfish    # 升级 Blowfish 主题（之后必须本地构建验证）
-hugo env                                         # 查看当前 Hugo 版本
+hugo --minify                                     # 本地完整构建，输出到 public/
+hugo server -D                                    # 本地实时预览（含草稿）
+git submodule update --remote themes/FixIt        # 升级 FixIt 主题（之后必须本地构建验证）
+hugo env                                          # 查看当前 Hugo 版本
 ```
 
-> 说明：本地 Hugo 为 0.166.0 extended，Blowfish（v3.6.0）官方声明支持到 0.165.0，
-> 构建时会有一条版本范围 WARN——不影响使用，属正常现象。
+> 说明：构建时可能出现两条 WARN——一条是主题自带的 `imaging.quality` 弃用提示，
+> 一条是主题 SCSS 里旧的斜杠除法提示。它们**都不影响使用**，属正常现象，
+> 主题后续版本会修复。

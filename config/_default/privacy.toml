@@ -1,0 +1,6 @@
+# -- 隐私配置 --
+[x]
+  enableDNT = true
+
+[youtube]
+  privacyEnhanced = true

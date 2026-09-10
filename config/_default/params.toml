@@ -1,37 +1,46 @@
 # -- 主题外观与功能参数 --
-# 完整参数见主题文档 https://blowfish.page/docs/configuration/
-# 未写出的参数沿用主题默认值
+# 完整参数见 https://fixit.lruihao.cn/zh-cn/docs/getting-started/configuration/params/
+# 未写出的参数沿用主题默认值（默认值定义在 themes/FixIt/hugo.toml）
 
-colorScheme = "blowfish" # 配色方案，可选：blowfish/congo/avocado/ocean/forest/fire/cherry/princess/midnight/neon 等
-defaultAppearance = "light" # 默认明色，访客可自行切换
-autoSwitchAppearance = true # 跟随系统明暗设置
+description = "记录、思考与分享" # 站点描述（SEO / 社交分享摘要）
+keywords = ["博客", "技术", "生活"]
+default_theme = "auto" # 明暗主题：light / dark / auto
+date_format = "2006-01-02"
 
-enableSearch = true # 顶栏搜索（本地全文搜索）
-enableCodeCopy = true # 代码块一键复制
+# 作者信息
+[author]
+  name = "wArn"
+  link = "https://github.com/你的用户名" # 改成你自己的 GitHub 主页
+  # avatar = "img/avatar.png" # 作者头像（图片放 assets/img/）
 
-backgroundImageWidth = 1200 # 背景图自动缩放到 1200px 宽，避免加载超大原图
+# 顶栏标题与副标题
+[header.title]
+  # name 留空则自动显示站点标题
+[header.subtitle]
+  name = "记录、思考与分享"
 
-mainSections = ["post"] # 博客文章所在目录 content/post/
+# 首页作者卡片
+[home.profile]
+  enable = true
+  title = "wArn"
+  subtitle = "写写技术，记记生活。"
+  typeit = true # 副标题打字机动画
+  social = true # 显示社交链接
 
-[header]
-  layout = "fixed" # 顶栏吸顶；可选 basic/fixed/fixed-fill/fixed-gradient/fixed-fill-blur/floating
+# 首页文章列表
+[home.posts]
+  paginate = 10 # 每页显示的文章数
 
-[homepage]
-  layout = "background" # 首页布局：大背景图 + 标题 + 最新文章；可选 page/profile/hero/card/background
-  homepageImage = "img/background.jpg" # 背景图（assets/img/ 下）；想换图直接覆盖这个文件或改路径
-  showRecent = true
-  showRecentItems = 6
-  showMoreLink = true
-  showMoreLinkDest = "/post/"
-  cardView = true # 最新文章以卡片展示
-  layoutBackgroundBlur = true # 向下滚动时背景加模糊效果
+# 页脚
+[footer]
+  since = "2026"
 
-[article]
-  showTableOfContents = true # 文章页目录
-  showTaxonomies = true # 显示分类/标签
-  showReadingTime = true
-  showWordCount = true
-  showHeadingAnchors = true
+# 搜索（本地全文搜索，FixIt 默认已开启，这里显式声明）
+[search]
+  enable = true
+  type = "fuse"
 
-[list]
-  showSummary = true # 列表页显示摘要
+# 社交链接（显示在首页作者卡片）
+[social]
+  GitHub = "https://github.com/你的用户名" # 改成你自己的 GitHub 主页
+  RSS = true

@@ -1,26 +1,57 @@
-# -- Markup --
-# These settings are required for the theme to function.
+# -- Markup 配置 --
+# FixIt 必需，参考主题官方模板
 
+_merge = "shallow"
+
+# 语法高亮
+[highlight]
+  # ~~~~~~~~~~ 必需配置 ~~~~~~~~~~
+  codeFences = true
+  noClasses = false
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  anchorLineNos = false
+  guessSyntax = true
+  lineNos = true
+  lineNumbersInTable = true
+
+# Goldmark 是 Hugo 默认的 Markdown 渲染引擎
 [goldmark]
-  [goldmark.parser]
-    wrapStandAloneImageWithinParagraph = false
-
-    [goldmark.parser.attribute]
-      block = true
-
-  [goldmark.renderer]
-    unsafe = true
+  duplicateResourceFiles = false
 
   [goldmark.extensions]
+    definitionList = true
+    footnote = true
+    linkify = true
+    linkifyProtocol = 'https'
+    strikethrough = false
+    table = true
+    taskList = true
+    typographer = true
+
+    [goldmark.extensions.extras]
+      [goldmark.extensions.extras.delete]
+        enable = true
+      [goldmark.extensions.extras.insert]
+        enable = true
+      [goldmark.extensions.extras.mark]
+        enable = true
+      [goldmark.extensions.extras.subscript]
+        enable = true
+      [goldmark.extensions.extras.superscript]
+        enable = true
+
     [goldmark.extensions.passthrough]
       enable = true
       [goldmark.extensions.passthrough.delimiters]
         block = [['\[', '\]'], ['$$', '$$']]
-        inline = [['\(', '\)']]
+        inline = [['\(', '\)'], ['$', '$']]
 
-[highlight]
-  noClasses = false
+  [goldmark.parser]
+    [goldmark.parser.attribute]
+      block = true
+      title = true
 
-[tableOfContents]
-  startLevel = 2
-  endLevel = 4
+  [goldmark.renderer]
+    hardWraps = false
+    unsafe = true # 允许正文直接使用 HTML
+    xhtml = false

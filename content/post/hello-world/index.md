@@ -9,7 +9,7 @@ categories:
   - 公告
 ---
 
-欢迎来到我的博客！这篇文章由 Hugo + Blowfish 主题生成，部署在 GitHub Pages 上。
+欢迎来到我的博客！这篇文章由 Hugo + FixIt 主题生成，部署在 GitHub Pages 上。
 
 ## 这套博客是怎么运作的
 
@@ -43,7 +43,7 @@ def hello():
 | 工具 | 作用 |
 | ---- | ---- |
 | Hugo | 静态站点生成 |
-| Stack | 主题外观 |
+| FixIt | 主题外观 |
 | GitHub Pages | 免费托管 |
 
 ---

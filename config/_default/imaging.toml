@@ -1,0 +1,9 @@
+# -- 图片处理配置 --
+# Hugo 0.163 起 quality 需按格式分别设置
+_merge = "shallow"
+
+[jpeg]
+  quality = 75
+
+[webp]
+  quality = 75

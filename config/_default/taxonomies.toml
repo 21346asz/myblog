@@ -1,0 +1,4 @@
+# -- 分类法配置 --
+_merge = "shallow"
+category = "categories"
+tag = "tags"

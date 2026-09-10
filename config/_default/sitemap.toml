@@ -1,0 +1,5 @@
+# -- 站点地图配置 --
+changefreq = "weekly"
+disable = false
+filename = "sitemap.xml"
+priority = 0.5

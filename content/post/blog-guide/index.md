@@ -29,7 +29,7 @@ draft: true            # 改成 false 才会发布
 description: "一句话摘要，会显示在列表和搜索里"
 tags: ["标签A", "标签B"]
 categories: ["分类"]
-image: "cover.jpg"     # 可选：封面图（放在同目录下）
+featured_image: "cover.jpg"   # 可选：封面图（放在同目录下）
 ---
 ```
 
@@ -66,12 +66,13 @@ push 之后 GitHub Actions 会自动构建并发布到 GitHub Pages，大约一�
 
 ## 5. 常用管理操作
 
-Blowfish 主题的配置在 `config/_default/` 目录下：
+FixIt 主题的配置在 `config/_default/` 目录下：
 
-- **改博客标题/描述**：编辑 `languages.zh-cn.toml` 的 `title` 和 `description`
-- **改首页作者卡片**（名字、一句话、社交链接）：同一文件的 `[params.author]`
-- **改导航菜单**：编辑 `menus.zh-cn.toml`
-- **改外观功能**（配色方案、首页布局、文章页开关）：编辑 `params.toml`
-- **放头像**：图片放到 `assets/img/avatar.png`，在 `[params.author]` 里加一行 `image = "img/avatar.png"`
-- **升级主题**：`git submodule update --remote themes/blowfish`
+- **改博客标题**：编辑 `hugo.toml` 的 `title`
+- **改站点描述**：编辑 `params.toml` 的 `description`
+- **改首页作者卡片**（名字、一句话、社交链接）：编辑 `params.toml` 的 `[author]`、`[home.profile]`、`[social]`
+- **改导航菜单**：编辑 `menus.toml`
+- **改外观功能**（明暗主题、代码块、目录、搜索等）：编辑 `params.toml`
+- **放头像**：图片放到 `assets/img/avatar.png`，在 `params.toml` 的 `[author]` 里加一行 `avatar = "img/avatar.png"`
+- **升级主题**：`git submodule update --remote themes/FixIt`（升级后需本地构建验证）
 - **本地完整构建测试**：`hugo --minify`，结果输出到 `public/` 目录

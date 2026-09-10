@@ -2,7 +2,7 @@
  "compilerOptions": {
   "paths": {
    "*": [
-    "..\\themes\\stack\\assets\\*"
+    "..\\themes\\FixIt\\assets\\*"
    ]
   }
  }

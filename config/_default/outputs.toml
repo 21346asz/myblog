@@ -1,0 +1,9 @@
+# -- 输出格式配置 --
+# 搜索（search）、归档（archives）等页面依赖这些输出格式
+
+_merge = "shallow"
+home = ["html", "rss", "archives", "search", "offline", "manifest", "link"]
+page = ["html", "markdown"]
+section = ["html", "rss"]
+taxonomy = ["html"]
+term = ["html", "rss"]

@@ -1,0 +1,40 @@
+# -- 顶部导航菜单 --
+[[main]]
+  identifier = "posts"
+  name = "文章"
+  url = "post/"
+  weight = 1
+  [main.params]
+    icon = "fa-solid fa-pen-nib"
+
+[[main]]
+  identifier = "categories"
+  name = "分类"
+  url = "categories/"
+  weight = 2
+  [main.params]
+    icon = "fa-solid fa-folder-tree"
+
+[[main]]
+  identifier = "tags"
+  name = "标签"
+  url = "tags/"
+  weight = 3
+  [main.params]
+    icon = "fa-solid fa-tags"
+
+[[main]]
+  identifier = "archives"
+  name = "归档"
+  url = "archives/"
+  weight = 4
+  [main.params]
+    icon = "fa-solid fa-archive"
+
+[[main]]
+  identifier = "about"
+  name = "关于"
+  url = "about/"
+  weight = 5
+  [main.params]
+    icon = "fa-solid fa-user"

@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive # 拉取 themes/stack
+          submodules: recursive # 拉取 themes/FixIt
           fetch-depth: 0
 
       - name: Setup Hugo
@@ -33,6 +33,14 @@ jobs:
         with:
           hugo-version: "0.166.0"
           extended: true
+
+      - name: Setup Dart Sass
+        # FixIt 的 SCSS 需要 Dart Sass（Hugo 0.166 不再内置 Sass 编译器）
+        run: |
+          curl -fsSL -o /tmp/dart-sass.tar.gz \
+            https://github.com/sass/dart-sass/releases/download/1.104.0/dart-sass-1.104.0-linux-x64.tar.gz
+          tar -xzf /tmp/dart-sass.tar.gz -C /tmp
+          echo "/tmp/dart-sass" >> "$GITHUB_PATH"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
