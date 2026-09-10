@@ -40,6 +40,36 @@ push 后 GitHub Actions 自动构建发布，约一分钟后线上可见。
 | 每页文章数、链接格式 | `config/_default/hugo.toml` / `config/_default/permalinks.toml` |
 | 头像 / logo | 图片放 `assets/img/`，在 `params.toml` 的 `[author]` 里填 `avatar = "img/avatar.png"` |
 
+## 内容目录结构（怎么归档）
+
+所有内容都在 `content/posts/` 下，按类型分层；**网页地址统一是 `/p/<文件夹名>/`**（与目录层级无关）：
+
+```text
+content/posts/
+├── hello-world/                # 日常文章（随笔 / 技术 / 教程）——直接放这里
+├── blog-guide/
+└── writeups/                   # 靶机写up
+    ├── hackmyvm/
+    │   ├── easy/<靶机名>/
+    │   ├── medium/<靶机名>/
+    │   └── <靶机名>/           # 未标注难度的
+    └── mazesec/
+        ├── easy/<靶机名>/
+        └── medium/<靶机名>/
+```
+
+| 要发什么 | 放哪里 | 新建命令 |
+| -------- | ------ | -------- |
+| 日常文章 | `content/posts/<文章名>/` | `hugo new content posts/我的新文章/index.md` |
+| 靶机写up | `content/posts/writeups/<平台>/<难度>/<靶机名>/` | `hugo new content posts/writeups/hackmyvm/easy/靶机名/index.md` |
+
+靶机写up 的 front matter 记得带上分类和标签（来源 + 难度）：
+
+```yaml
+categories: ["靶机复盘"]
+tags: ["HackMyVM", "Easy"]
+```
+
 ## 文章写法
 
 每篇文章是一个独立文件夹（Page Bundle），图片直接放在文章旁边：
