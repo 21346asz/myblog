@@ -10,7 +10,7 @@ date_format = "2006-01-02"
 # 作者信息
 [author]
   name = "wArn"
-  link = "https://github.com/你的用户名" # 改成你自己的 GitHub 主页
+  link = "https://github.com/21346asz"
   avatar = "img/avatar.png" # 作者头像（图片放 assets/img/）
 
 # 顶栏标题与副标题
@@ -42,7 +42,7 @@ date_format = "2006-01-02"
 
 # 社交链接（显示在首页作者卡片）
 [social]
-  GitHub = "https://github.com/你的用户名" # 改成你自己的 GitHub 主页
+  GitHub = "https://github.com/21346asz"
   RSS = true
 
 # 配色主题：青绿（清爽）

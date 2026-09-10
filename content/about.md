@@ -16,6 +16,6 @@ description: "关于本站与作者。"
 
 ## 联系我
 
-- **GitHub**：[你的用户名](https://github.com/你的用户名)
+- **GitHub**：[21346asz](https://github.com/21346asz)
 
 > 如果某篇文章帮到了你，欢迎常来看看。
