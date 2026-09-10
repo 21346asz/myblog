@@ -18,4 +18,4 @@ buildFuture = false # 注意：文章 date 在未来时不会发布
 
 titleCaseStyle = "ap"
 capitalizeListTitles = false
-mainSections = ["post"] # 博客文章所在目录 content/post/
+mainSections = ["posts"] # 博客文章所在目录 content/posts/

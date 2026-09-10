@@ -14,7 +14,7 @@ Hugo + FixIt 主题的中文博客，部署在 GitHub Pages 上，push 即自动
 
 ```bash
 # 1. 新建文章（在 D:\MyBlog 下执行）
-hugo new content post/我的新文章/index.md
+hugo new content posts/我的新文章/index.md
 # 然后编辑文件，把 draft: true 改为 false，写正文，图片放同目录
 
 # 2. 本地预览
@@ -45,7 +45,7 @@ push 后 GitHub Actions 自动构建发布，约一分钟后线上可见。
 每篇文章是一个独立文件夹（Page Bundle），图片直接放在文章旁边：
 
 ```text
-content/post/我的新文章/
+content/posts/我的新文章/
 ├── index.md
 ├── cover.jpg       ← 封面图（在 front matter 里写 featured_image: "cover.jpg"）
 └── screenshot.png  ← 正文配图

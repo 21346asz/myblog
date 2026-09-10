@@ -16,7 +16,7 @@ categories:
 在 `D:\MyBlog` 目录下执行：
 
 ```bash
-hugo new content post/我的新文章/index.md
+hugo new content posts/我的新文章/index.md
 ```
 
 生成的文件开头有一段 front matter（两行 `---` 之间的部分）：
@@ -38,7 +38,7 @@ featured_image: "cover.jpg"   # 可选：封面图（放在同目录下）
 每篇文章是一个独立的文件夹（Page Bundle），图片直接放在文章旁边即可：
 
 ```text
-content/post/我的新文章/
+content/posts/我的新文章/
 ├── index.md
 ├── cover.jpg      ← 封面图
 └── screenshot.png ← 正文配图
