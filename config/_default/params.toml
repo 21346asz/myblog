@@ -15,12 +15,14 @@ mainSections = ["post"] # 博客文章所在目录 content/post/
   layout = "fixed" # 顶栏吸顶；可选 basic/fixed/fixed-fill/fixed-gradient/fixed-fill-blur/floating
 
 [homepage]
-  layout = "profile" # 首页布局：作者卡片 + 最新文章；可选 page/profile/hero/card/background
+  layout = "background" # 首页布局：大背景图 + 标题 + 最新文章；可选 page/profile/hero/card/background
+  homepageImage = "img/background.jpg" # 背景图（assets/img/ 下）；想换图直接覆盖这个文件或改路径
   showRecent = true
   showRecentItems = 6
   showMoreLink = true
   showMoreLinkDest = "/post/"
   cardView = true # 最新文章以卡片展示
+  layoutBackgroundBlur = true # 向下滚动时背景加模糊效果
 
 [article]
   showTableOfContents = true # 文章页目录
