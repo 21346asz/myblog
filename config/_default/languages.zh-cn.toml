@@ -1,0 +1,24 @@
+# -- 语言与作者配置（简体中文）--
+disabled = false
+locale = "zh-cn"
+label = "简体中文"
+weight = 1
+title = "我的博客" # 站点标题
+
+[params]
+  displayName = "中文"
+  isoCode = "zh-cn"
+  rtl = false
+  dateFormat = "2006年1月2日"
+  description = "记录、思考与分享" # 站点描述（SEO / 社交分享摘要）
+  # logo = "img/logo.png" # 顶栏 logo（放 assets/img/）
+  # copyright = ""
+
+[params.author]
+  name = "wArn"
+  headline = "记录、思考与分享" # 首页头像旁的一句话
+  bio = "写写技术，记记生活。"
+  # image = "img/avatar.png" # 作者头像（放 assets/img/）
+  links = [
+    { github = "https://github.com/你的用户名" }, # 改成你自己的 GitHub 主页
+  ]

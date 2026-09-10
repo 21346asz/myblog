@@ -66,7 +66,12 @@ push 之后 GitHub Actions 会自动构建并发布到 GitHub Pages，大约一�
 
 ## 5. 常用管理操作
 
-- **改博客标题/副标题**：编辑 `hugo.yaml` 顶部的 `title` 和 `sidebar.subtitle`
-- **改侧边栏头像**：把图片放到 `assets/img/avatar.png`，把 `hugo.yaml` 中 `sidebar.avatar.enabled` 改为 `true`
-- **升级主题**：`git submodule update --remote themes/stack`
+Blowfish 主题的配置在 `config/_default/` 目录下：
+
+- **改博客标题/描述**：编辑 `languages.zh-cn.toml` 的 `title` 和 `description`
+- **改首页作者卡片**（名字、一句话、社交链接）：同一文件的 `[params.author]`
+- **改导航菜单**：编辑 `menus.zh-cn.toml`
+- **改外观功能**（配色方案、首页布局、文章页开关）：编辑 `params.toml`
+- **放头像**：图片放到 `assets/img/avatar.png`，在 `[params.author]` 里加一行 `image = "img/avatar.png"`
+- **升级主题**：`git submodule update --remote themes/blowfish`
 - **本地完整构建测试**：`hugo --minify`，结果输出到 `public/` 目录

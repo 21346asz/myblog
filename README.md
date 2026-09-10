@@ -1,6 +1,6 @@
 # 我的博客
 
-Hugo + Stack 主题的中文博客，部署在 GitHub Pages 上，push 即自动发布。
+Hugo + Blowfish 主题的中文博客，部署在 GitHub Pages 上，push 即自动发布。
 
 ## 环境要求
 
@@ -25,16 +25,16 @@ git push
 
 push 后 GitHub Actions 自动构建发布，约一分钟后线上可见。
 
-## 站点设置在哪改
+## 配置在哪改（Blowfish 用 config/_default/ 目录管理配置）
 
 | 想改什么 | 改哪里 |
 | -------- | ------ |
-| 博客标题 | `hugo.yaml` → `title` |
-| 侧边栏副标题 | `hugo.yaml` → `params.sidebar.subtitle` |
-| 头像 | 图片放 `assets/img/avatar.png`，`hugo.yaml` → `params.sidebar.avatar` 填 `img/avatar.png` |
-| 侧边栏 GitHub 链接 | `hugo.yaml` → `menu.social` 里的 URL |
-| 每页文章数 | `hugo.yaml` → `pagination.pagerSize` |
-| 侧边栏菜单 | `hugo.yaml` → `menu.main` |
+| 博客标题 / 站点描述 | `config/_default/languages.zh-cn.toml` → `title` / `description` |
+| 首页作者卡片（名字、签名、社交链接） | `config/_default/languages.zh-cn.toml` → `[params.author]` |
+| 顶部导航菜单 | `config/_default/menus.zh-cn.toml` |
+| 外观与功能（配色、布局、代码复制、目录等） | `config/_default/params.toml` |
+| 站点基础（每页文章数、链接格式） | `config/_default/hugo.toml` |
+| 头像 / logo | 图片放 `assets/img/`，在 `languages.zh-cn.toml` 对应位置填路径 |
 
 ## 首次部署到 GitHub（只需做一次）
 
@@ -55,7 +55,10 @@ push 后 GitHub Actions 自动构建发布，约一分钟后线上可见。
 ## 常用维护命令
 
 ```bash
-hugo --minify                                  # 本地完整构建，输出到 public/
-git submodule update --remote themes/stack     # 升级 Stack 主题
-hugo env                                       # 查看当前 Hugo 版本
+hugo --minify                                    # 本地完整构建，输出到 public/
+git submodule update --remote themes/blowfish    # 升级 Blowfish 主题（之后必须本地构建验证）
+hugo env                                         # 查看当前 Hugo 版本
 ```
+
+> 说明：本地 Hugo 为 0.166.0 extended，Blowfish（v3.6.0）官方声明支持到 0.165.0，
+> 构建时会有一条版本范围 WARN——不影响使用，属正常现象。

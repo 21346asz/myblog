@@ -1,18 +1,17 @@
 ---
 title: "关于"
 description: "关于本站与作者。"
-slug: "about"
 ---
 
 你好，欢迎来到我的博客 👋
 
-这里主要记录我的技术笔记、生活见闻和一些思考。博客使用 Hugo 搭建，主题为 Stack，托管在 GitHub Pages 上。
+这里主要记录我的技术笔记、生活见闻和一些思考。博客使用 Hugo 搭建，主题为 Blowfish，托管在 GitHub Pages 上。
 
 ## 关于本站
 
 - **写作工具**：Markdown + VS Code
 - **生成引擎**：Hugo
-- **外观主题**：[Stack](https://github.com/CaiJimmy/hugo-theme-stack)
+- **外观主题**：[Blowfish](https://github.com/nunocoracao/blowfish)
 - **托管服务**：GitHub Pages（免费）
 
 ## 联系我

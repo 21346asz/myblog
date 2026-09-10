@@ -1,0 +1,33 @@
+# -- 主题外观与功能参数 --
+# 完整参数见主题文档 https://blowfish.page/docs/configuration/
+# 未写出的参数沿用主题默认值
+
+colorScheme = "blowfish" # 配色方案，可选：blowfish/congo/avocado/ocean/forest/fire/cherry/princess/midnight/neon 等
+defaultAppearance = "light" # 默认明色，访客可自行切换
+autoSwitchAppearance = true # 跟随系统明暗设置
+
+enableSearch = true # 顶栏搜索（本地全文搜索）
+enableCodeCopy = true # 代码块一键复制
+
+mainSections = ["post"] # 博客文章所在目录 content/post/
+
+[header]
+  layout = "fixed" # 顶栏吸顶；可选 basic/fixed/fixed-fill/fixed-gradient/fixed-fill-blur/floating
+
+[homepage]
+  layout = "profile" # 首页布局：作者卡片 + 最新文章；可选 page/profile/hero/card/background
+  showRecent = true
+  showRecentItems = 6
+  showMoreLink = true
+  showMoreLinkDest = "/post/"
+  cardView = true # 最新文章以卡片展示
+
+[article]
+  showTableOfContents = true # 文章页目录
+  showTaxonomies = true # 显示分类/标签
+  showReadingTime = true
+  showWordCount = true
+  showHeadingAnchors = true
+
+[list]
+  showSummary = true # 列表页显示摘要
