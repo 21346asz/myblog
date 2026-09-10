@@ -1,0 +1,132 @@
+# ============================================================
+# Hugo 博客主配置（Hugo + Stack 主题）
+# 标题、副标题等文案直接改下面的中文即可
+# ============================================================
+
+baseURL: https://example.com/ # 占位即可：部署时 GitHub Actions 会自动替换成真实地址
+locale: zh-cn
+defaultContentLanguage: zh-cn
+hasCJKLanguage: true # 让中文的摘要/字数统计正确
+title: 我的博客
+theme: stack
+enableEmoji: true
+
+pagination:
+  pagerSize: 10 # 每页显示的文章数
+
+permalinks:
+  post: /p/:slugorfilename/ # 文章链接形如 /p/hello-world/
+  page: /:slugorfilename/
+
+# ---------- 侧边栏导航菜单 ----------
+menu:
+  main:
+    - identifier: home
+      name: 首页
+      pageRef: /
+      weight: 10
+      params:
+        icon: home
+    - identifier: archives
+      name: 归档
+      pageRef: /archives
+      weight: 20
+      params:
+        icon: archives
+    - identifier: search
+      name: 搜索
+      pageRef: /search
+      weight: 30
+      params:
+        icon: search
+    - identifier: about
+      name: 关于
+      pageRef: /about
+      weight: 40
+      params:
+        icon: user
+  social:
+    - identifier: github
+      name: GitHub
+      url: https://github.com/你的用户名 # 改成你自己的 GitHub 主页
+      params:
+        icon: brand-github
+
+# ---------- Stack 主题参数 ----------
+params:
+  mainSections:
+    - post # 博客文章所在目录 content/post/
+
+  featuredImageField: image # 文章 front matter 里用 image: 指定封面图
+  rssFullContent: true
+
+  footer:
+    since: 2026 # 页脚起始年份
+
+  dateFormat:
+    published: ":date_full"
+    lastUpdated: ":date_full"
+
+  sidebar:
+    emoji: "👋" # 显示在头像右下角的表情
+    subtitle: "记录、思考与分享"
+    avatar: "" # 想放头像：把图片放到 assets/img/avatar.png，这里填 img/avatar.png
+
+  article:
+    math: false # 需要数学公式时改为 true
+    toc: true # 文章页右侧目录
+    readingTime: true # 显示阅读时长
+    license:
+      enabled: false
+
+  comments:
+    enabled: false # 想加评论（如 giscus/waline）时参考 Stack 文档再开启
+
+  widgets:
+    homepage: # 首页侧边小部件
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: tag-cloud
+        params:
+          limit: 10
+    page:
+      - type: toc
+
+  colorScheme:
+    toggle: true # 允许访客切换明暗色
+    default: auto
+
+  imageProcessing:
+    content:
+      enabled: true
+    thumbnail:
+      enabled: true
+
+# ---------- Markdown / 代码高亮 ----------
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ["\\[", "\\]"]
+            - ["$$", "$$"]
+          inline:
+            - ["\\(", "\\)"]
+    renderer:
+      unsafe: true # 允许 Markdown 里写 HTML
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: true
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    tabWidth: 4
