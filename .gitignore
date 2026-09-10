@@ -3,6 +3,9 @@ public/
 resources/_gen/
 .hugo_build.lock
 
+# AI 交接文档（本地私有，不发布）
+HANDOFF.md
+
 # 系统文件
 .DS_Store
 Thumbs.db
