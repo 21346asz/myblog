@@ -9,7 +9,7 @@ description: "关于本站与作者。"
 
 ## 关于本站
 
-- **写作工具**：Markdown + VS Code
+- **写作工具**：Markdown + Typora
 - **生成引擎**：Hugo
 - **外观主题**：[FixIt](https://github.com/hugo-fixit/FixIt)
 - **托管服务**：GitHub Pages（免费）
