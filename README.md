@@ -39,6 +39,22 @@ push 后 GitHub Actions 自动构建发布，约一分钟后线上可见。
 | 外观与功能（明暗主题、代码块、目录、搜索等） | `config/_default/params.toml` |
 | 每页文章数、链接格式 | `config/_default/hugo.toml` / `config/_default/permalinks.toml` |
 | 头像 / logo | 图片放 `assets/img/`，在 `params.toml` 的 `[author]` 里填 `avatar = "img/avatar.png"` |
+| **全站字号大小** | `config/_default/params.toml` → `[appearance]` 的 `global_font_size`（当前 `18px`） |
+
+### 觉得字太小 / 太大？改一个值就行
+
+打开 `config/_default/params.toml`，找到 `[appearance]`：
+
+```toml
+global_font_size = "18px"   # 16px = 主题默认（偏小）｜17px 略大｜18px 当前｜20px 很大
+```
+
+标题、代码块、目录、日期等尺寸都按这个基准等比缩放，所以**只改这一个值**，全站一起变大变小。
+改完用 `hugo server -D` 本地预览（保存即刷新），满意再 push 上线。
+
+> 小知识：字号变大后，顶栏在 680–899.9px（iPad 竖屏这类宽度）会挤不下，
+> `layouts/_partials/custom-style.html` 里有一段**站点自有**的补丁专门处理这件事（原因写在文件注释里）。
+> 不想要这段补丁：删掉该文件，再去 `params.toml` 把 `[custom_partials]` 那段注册删掉即可。
 
 ## 内容目录结构（怎么归档）
 
