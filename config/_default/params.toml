@@ -45,14 +45,6 @@ date_format = "2006-01-02"
   GitHub = "https://github.com/21346asz"
   RSS = true
 
-# 自定义 partial 注入点（FixIt 官方扩展机制）
-# 把站点自有样式片段注入 <head>：文件是 layouts/_partials/custom-style.html
-# 目前内含「窄桌面顶栏 680–899.9px 适配」补丁，原因见该文件顶部注释
-# 注意：params.toml 里的键本身就是 params 的内容，所以这里写 [custom_partials]，
-# 不要再写成 [params.custom_partials]（那样会变成 params.params.… 而失效）
-[custom_partials]
-  head = ["custom-style"]
-
 # 配色主题：青绿（清爽）
 # 覆盖主题默认 SCSS 变量；颜色须用十六进制或 CSS 函数（如 rgba）
 [appearance]
