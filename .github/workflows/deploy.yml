@@ -50,14 +50,8 @@ jobs:
 
       - name: Build
         run: |
-          owner="${GITHUB_REPOSITORY_OWNER}"
-          repo="${GITHUB_REPOSITORY#*/}"
-          # 兼容两种仓库：用户名.github.io（根路径）和普通仓库名（子路径）
-          if [ "$repo" = "${owner}.github.io" ]; then
-            base="https://${owner}.github.io/"
-          else
-            base="https://${owner}.github.io/${repo}/"
-          fi
+          # 自定义域名；static/CNAME 已声明同一域名，Pages 会保持绑定
+          base="https://blog.1urkers.cn/"
           echo "baseURL = $base"
           hugo --minify --baseURL "$base"
 
