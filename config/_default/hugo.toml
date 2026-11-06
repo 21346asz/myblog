@@ -1,7 +1,7 @@
 # -- 站点基础配置 --
 # FixIt 主题文档：https://fixit.lruihao.cn/zh-cn/
 theme = "FixIt"
-title = "1urkers"
+title = "😊1urkers"
 baseURL = "https://example.com/" # 占位即可：GitHub Actions 构建时会自动替换成真实地址
 defaultContentLanguage = "zh-cn"
 locale = "zh-CN"

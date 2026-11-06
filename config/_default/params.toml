@@ -22,8 +22,8 @@ date_format = "2006-01-02"
 # 首页作者卡片
 [home.profile]
   enable = true
-  title = "1urkers"
-  subtitle = ""
+  title = "😊1urkers"
+  subtitle = "welcome my blog"
   typeit = true # 副标题打字机动画
   social = true # 显示社交链接
 
