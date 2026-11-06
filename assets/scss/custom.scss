@@ -1,0 +1,122 @@
+// =====================================================================
+// 站点自定义样式（主题最后加载，优先级最高）
+// 只做视觉层调整，不改布局；字体与配色主体在 config/_default/params.toml
+// =====================================================================
+
+// ---------------------------------------------------------------------
+// 1. 自托管字体：JetBrains Mono（代码块）
+//    霞鹜文楷走 assets/css/wenkai.css（97 个 unicode-range 子集，按需下载）
+// ---------------------------------------------------------------------
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/jetbrains/jetbrains-mono-latin-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/jetbrains/jetbrains-mono-latin-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+// ---------------------------------------------------------------------
+// 2. 页面背景：青绿 + 天蓝双光晕，顶部渐隐成纯色
+//    light-dark() 跟着主题自动切换，不用写两套
+// ---------------------------------------------------------------------
+body {
+  background-image:
+    // 顶部主光晕（青绿）
+    radial-gradient(
+      78rem 38rem at 50% -12rem,
+      light-dark(rgba(13, 148, 136, 0.28), rgba(45, 212, 191, 0.13)),
+      transparent 68%
+    ),
+    // 右上副光晕（天蓝），和青绿做冷暖过渡
+    radial-gradient(
+      46rem 28rem at 94% -1rem,
+      light-dark(rgba(56, 189, 248, 0.20), rgba(56, 189, 248, 0.10)),
+      transparent 66%
+    ),
+    // 左下一点点暖色，避免整页只有一种冷色
+    radial-gradient(
+      42rem 26rem at 2% 32rem,
+      light-dark(rgba(251, 191, 36, 0.07), rgba(251, 191, 36, 0.03)),
+      transparent 70%
+    ),
+    // 顶部往下渐隐，光晕不会在页面中部硬切
+    linear-gradient(
+      180deg,
+      light-dark(rgba(238, 250, 248, 0.9), rgba(17, 26, 28, 0.9)) 0%,
+      light-dark(rgba(255, 255, 255, 0), rgba(19, 26, 28, 0)) 30rem
+    );
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+// ---------------------------------------------------------------------
+// 3. 顶栏：毛玻璃 + 去掉生硬的底色边界
+// ---------------------------------------------------------------------
+#header-desktop,
+#header-mobile {
+  backdrop-filter: saturate(1.4) blur(12px);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: 1px solid light-dark(rgba(15, 118, 110, 0.08), rgba(94, 234, 212, 0.08));
+}
+
+// ---------------------------------------------------------------------
+// 4. 首页头像：外圈柔光 + 悬停微浮
+// ---------------------------------------------------------------------
+.home-profile .home-avatar img {
+  box-shadow:
+    0 0 0 0.3618em light-dark(rgba(13, 148, 136, 0.08), rgba(45, 212, 191, 0.1)),
+    0 0.75rem 2rem -0.5rem light-dark(rgba(13, 148, 136, 0.22), rgba(45, 212, 191, 0.18));
+}
+
+// ---------------------------------------------------------------------
+// 5. 首页文章卡片：白底 → 微透明玻璃感 + 悬停轻抬
+// ---------------------------------------------------------------------
+.home.posts .home-posts .summary {
+  background-color: light-dark(rgba(255, 255, 255, 0.72), rgba(31, 37, 45, 0.62));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0.25rem 1rem -0.75rem light-dark(rgba(15, 23, 42, 0.18), rgba(0, 0, 0, 0.5));
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, translate 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 0.75rem 1.75rem -0.6rem light-dark(rgba(13, 148, 136, 0.22), rgba(45, 212, 191, 0.16));
+    translate: 0 -0.125rem;
+  }
+}
+
+// ---------------------------------------------------------------------
+// 6. 标题与正文：楷体笔画细，标题压一档字重、行距放松一点
+// ---------------------------------------------------------------------
+.page .content,
+.page .single-title {
+  letter-spacing: 0.01em;
+}
+
+.home.posts .home-posts .summary .single-title {
+  letter-spacing: 0.015em;
+  font-weight: 600;
+}
+
+// 楷体笔画比黑体细，同一灰度下显得发虚：摘要正文比主题默认深一档
+.home.posts .home-posts .summary .content {
+  color: light-dark(#4a5560, #9aa6b2);
+
+  b,
+  strong {
+    color: light-dark(#2c3540, #c3ccd6);
+  }
+}

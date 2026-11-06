@@ -2,14 +2,14 @@
 # 完整参数见 https://fixit.lruihao.cn/zh-cn/docs/getting-started/configuration/params/
 # 未写出的参数沿用主题默认值（默认值定义在 themes/FixIt/hugo.toml）
 
-description = "记录、思考与分享" # 站点描述（SEO / 社交分享摘要）
+description = "" # 站点描述（SEO / 社交分享摘要）
 keywords = ["博客", "技术", "生活"]
 default_theme = "auto" # 明暗主题：light / dark / auto
 date_format = "2006-01-02"
 
 # 作者信息
 [author]
-  name = "wArn"
+  name = "1urkers"
   link = "https://github.com/21346asz"
   avatar = "img/avatar.png" # 作者头像（图片放 assets/img/）
 
@@ -22,8 +22,8 @@ date_format = "2006-01-02"
 # 首页作者卡片
 [home.profile]
   enable = true
-  title = "wArn"
-  subtitle = "写写技术，记记生活。"
+  title = "1urkers"
+  subtitle = ""
   typeit = true # 副标题打字机动画
   social = true # 显示社交链接
 
@@ -45,34 +45,56 @@ date_format = "2006-01-02"
   GitHub = "https://github.com/21346asz"
   RSS = true
 
+# 额外样式表：霞鹜文楷的 @font-face（97 个 unicode-range 子集，浏览器只下用到的那几片）
+# 文件在 assets/css/wenkai.css，字体在 static/fonts/wenkai/
+[library.css]
+  wenkai = "css/wenkai.css"
+
 # 配色主题：青绿（清爽）
 # 覆盖主题默认 SCSS 变量；颜色须用十六进制或 CSS 函数（如 rgba）
 [appearance]
+  # ===== 字体 =====
+  # 顺序不能反：WenKai 的 @font-face 只声明了 CJK 字符范围（assets/css/wenkai.css），
+  # 放在最前面时，只有中文才会命中它；西文/数字不匹配任何 WenKai 字形，
+  # 自动落到后面的 Segoe UI / 系统字体。中英各用各的最佳字形。
+  global_font_family = "'WenKai CJK', 'LXGW WenKai Screen', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+  # 代码块字体：JetBrains Mono 只管西文（latin 子集），中文注释落到 WenKai
+  code_font_family = "'JetBrains Mono', 'WenKai CJK', 'LXGW WenKai Screen', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+
   # ===== 字号（★ 想整体放大/缩小，只改 global_font_size 一个值）=====
   # 站点基准字号：正文 1rem 就是它；标题、代码、目录、元信息等都用 rem/em，
   # 会跟着它等比缩放，所以改这一个值 = 全站字号一起变大变小。
   # 参考：16px（主题默认，偏小）· 17px（略大）· 18px（当前，明显更舒服）· 20px（很大）
   global_font_size = "18px"
-  # 行高：1.5rem = 正文 1.5 倍行距；跟着基准字号等比走，通常不用动
-  global_line_height = "1.5rem"
+  # 行高：楷体字形偏松，1.6 倍更好读
+  global_line_height = "1.6rem"
+  # 圆角：6px 太方，8px 配毛玻璃卡片更柔
+  global_border_radius = "10px"
 
-  # 正文链接
-  global_link_color = "#0b6e63"
-  global_link_color_dark = "#5fd3c4"
-  global_link_hover_color = "#12a594"
-  global_link_hover_color_dark = "#9ff0e4"
+  # 正文链接（teal-700 / teal-300，对比度够）
+  global_link_color = "#0f766e"
+  global_link_color_dark = "#5eead4"
+  global_link_hover_color = "#0d9488"
+  global_link_hover_color_dark = "#99f6e4"
   # 顶栏当前菜单高亮
-  menu_active_color = "#0e9f8e"
-  menu_active_color_dark = "#5fd3c4"
+  menu_active_color = "#0f766e"
+  menu_active_color_dark = "#5eead4"
   # 文字选中背景
-  selection_color = "rgba(18, 165, 148, 0.25)"
-  selection_color_dark = "rgba(18, 165, 148, 0.4)"
-  # 顶栏背景（淡淡的青色调）
-  header_background_color = "#f2faf8"
-  header_background_color_dark = "#14201e"
-  # 分隔线 / 边框
-  global_border_color = "#d3e8e4"
-  global_border_color_dark = "#2c3b39"
+  selection_color = "rgba(13, 148, 136, 0.22)"
+  selection_color_dark = "rgba(45, 212, 191, 0.35)"
+  # 顶栏背景：半透明，配合 custom.scss 的毛玻璃
+  header_background_color = "rgba(255, 255, 255, 0.72)"
+  header_background_color_dark = "rgba(18, 24, 27, 0.72)"
+  # 搜索框底色
+  search_background_color = "#eef3f2"
+  search_background_color_dark = "#222c2e"
+  # 分隔线 / 边框（去掉原来的薄荷绿，换中性灰绿，不再发脏）
+  global_border_color = "#e3eae8"
+  global_border_color_dark = "#2b3536"
   # 滚动条
-  scrollbar_color = "#8ec9c0"
-  scrollbar_hover_color = "#0e9f8e"
+  scrollbar_color = "#a7bdb9"
+  scrollbar_hover_color = "#0f766e"
+
+[image]
+  optimise = true
+  black_list = []
